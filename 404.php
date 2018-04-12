@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+    <div id="primary-mono" class="content-area  <?php do_action('dellow_primary-width') ?>">
 		<main id="main" class="site-main" role="main">
 
 			<section class="error-404 not-found">
@@ -54,5 +54,4 @@ get_header(); ?>
 	</div><!-- #primary -->
 	
 <?php get_sidebar(); ?>
-<?php get_sidebar('footer'); ?>
 <?php get_footer(); ?>

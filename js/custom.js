@@ -1,59 +1,26 @@
 jQuery(document).ready(function() {
-	//Set up the Slider 
-	
-	
+    //Mobile Menu
+    jQuery('.menu-link').bigSlide({
+        menu: '#menu',
+        easyClose: true
+    });
 
-/*
-	jQuery('.menu-icon').toggle(
-				function () {
-					jQuery('.default-nav-wrapper').show();
-				},
-				
-				function () {
-					jQuery('.default-nav-wrapper').hide();
-				});
-*/
+    jQuery("time.entry-date").timeago();
 
-	
-	jQuery('#main-menu').sidr({
-		onOpen: function() { 
-			jQuery('#main-menu i').removeClass('icon-list').addClass('icon-indent-left');
-			 },
-		onClose: function() { jQuery('#main-menu i').removeClass('icon-indent-left').addClass('icon-list') },
-	});
-	
-	/* jQuery('.default-nav-wrapper').show(); */
-	
-	
-	jQuery("time.entry-date").timeago();	
-	
-	jQuery(".featured-thumb").hoverIntent(function() {
-		jQuery('.img-meta',this).slideDown(600,'easeOutBounce'); 
-		jQuery('.img-meta-link',this).css('margin-right','50px');
-		jQuery('.img-meta-link',this).animate({'margin-right':'0px'},500);
-	},
-		function() {
-		jQuery('.img-meta-link',this).animate({'margin-right':'50px'},500);
-		//jQuery('.img-meta-link').css('margin-right','50px');
-		jQuery('.img-meta',this).fadeOut('fast');
-		//jQuery('.img-meta-link').stop(true,false);	
-	});	
+    jQuery(".featured-dthumb").hoverIntent(function() {
+            jQuery('.img-meta',this).slideDown(600,'easeOutBounce');
+            jQuery('.img-meta-link',this).css('margin-right','50px');
+            jQuery('.img-meta-link',this).animate({'margin-right':'0px'},500);
+        },
+        function() {
+            jQuery('.img-meta-link',this).animate({'margin-right':'50px'},500);
+            //jQuery('.img-meta-link').css('margin-right','50px');
+            jQuery('.img-meta',this).fadeOut('fast');
+            //jQuery('.img-meta-link').stop(true,false);
+        });
 
-   	jQuery('a.meta-link-img').nivoLightbox();
-	
-/*
-	jQuery('.main-navigation ul.menu').mobileMenu({
-		switchWidth: 768
-	});
-*/
-	
-	/*jQuery('.menu-toggle').toggle(function() {
-		jQuery('.td_mobile_menu_wrap').fadeIn();
-	},
-	function() {
-		jQuery('.td_mobile_menu_wrap').hide();
-	});*/
-		
+    jQuery('a.meta-link-img').nivoLightbox();
+
 	jQuery(window).bind('scroll', function(e) {
 		hefct();
 	});		
@@ -85,7 +52,7 @@ jQuery(document).ready(function() {
     sticky_navigation();
      
 
-// and run it again every time you scroll
+    // and run it again every time you scroll
     jQuery(window).scroll(function() {
          sticky_navigation();
     });
@@ -95,9 +62,56 @@ jQuery(document).ready(function() {
 
 }); //endready
 
-  	
+
+
     	
 function hefct() {
 	var scrollPosition = jQuery(window).scrollTop();
 	jQuery('#parallax-bg').css('top', (0 - (scrollPosition * .2)) + 'px');
-}	
+}
+
+
+jQuery(window).load(function() {
+    jQuery('#nivoSlider').nivoSlider({
+        prevText: "<i class='fa fa-chevron-circle-left'></i>",
+        nextText: "<i class='fa fa-chevron-circle-right'></i>",
+    });
+});
+
+(function(jQuery) {
+    jQuery(document).ready(function() {
+
+        function showSlide(slide) {
+            jQuery('.slide').removeClass('visible');
+            $('.'+slide).addClass('visible');
+        }
+
+
+        jQuery('.slide').addClass('not-visible');
+        jQuery('.slide1').addClass('visible');
+        jQuery('.thumb1').addClass('arrowed');
+        jQuery('.thumb').click(function() {
+            jQuery('.thumb').removeClass('arrowed');
+            jQuery(this).addClass('arrowed');
+
+            if ( jQuery(this).hasClass('thumb1') ) {
+                showSlide('slide1');
+            }
+            if ( jQuery(this).hasClass('thumb2') ) {
+                showSlide('slide2');
+            }
+            if ( jQuery(this).hasClass('thumb3') ) {
+                showSlide('slide3');
+            }
+            if ( jQuery(this).hasClass('thumb4') ) {
+                showSlide('slide4');
+            }
+        });
+    });
+
+})( jQuery );
+
+function hefct() {
+    var scrollPosition = jQuery(window).scrollTop();
+    jQuery('#parallax-bg').css('top', (0 - (scrollPosition * .2)) + 'px');
+}

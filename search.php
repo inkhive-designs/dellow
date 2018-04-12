@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-md-8">
+    <div id="primary-mono" class="content-area  <?php do_action('dellow_primary-width') ?>">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -17,23 +17,26 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'search' ); ?>
+                <?php
+                /* Include the Post-Format-specific template for the content.
+                 */
+                do_action('dellow_blog_layout');
+                ?>
 
-			<?php endwhile; ?>
+            <?php endwhile; ?>
 
 			<?php dellow_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'no-results', 'search' ); ?>
+            <?php get_template_part( 'modules/content/content', 'none' ); ?>
 
 		<?php endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-<?php get_sidebar('footer'); ?>
 <?php get_footer(); ?>

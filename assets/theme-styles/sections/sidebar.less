@@ -1,0 +1,128 @@
+
+/* 7.2 Secondary
+------------------------------------------------------- */
+
+#secondary, #footer-sidebar {
+  aside {
+    padding: 15px;
+  }
+  ul {
+    list-style: none;
+    margin-left: 5px;
+    li:before {
+      margin-right: 5px;
+      content:"\f0da";
+      font-family: "FontAwesome";
+      color: @link-color;
+    }
+    ul {
+      li:before {
+        content: "\f111";
+        font-size: 5px;
+        position: relative;
+        top: -3px;
+      }
+      margin-left: 15px;
+      ul {
+        margin-left: 5px;
+
+      }
+    }
+  }
+  .widget_recent_entries {
+    li:before {
+      content: "\f0f6";
+    }
+    li {
+      border-bottom: solid 1px lighten(@link-color, 40%);
+      padding: 5px 0px;
+    }
+  }
+  .widget_recent_comments {
+    li:before {
+      content: "\f075";
+      font-size: 12px;
+      position: relative;
+      top: -2px;
+      border-bottom: solid 1px lighten(@link-color, 40%);
+      padding: 5px 0px;
+    }
+  }
+  .widget_calendar {
+    caption {
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+    table {
+      padding: 5px;
+      text-align:center;
+      background: #fff;
+    }
+    thead {
+      border-bottom: solid 1px @link-hover-color;
+      th {
+        background: #ddd;
+        padding: 5px;
+        text-align: center;
+      }
+    }
+    tr td {
+      padding: 8px !important;
+      background: #eee;
+      margin: 4px;
+      text-align: center;
+    }
+    #prev {
+      text-align: left;
+    }
+    #next {
+      text-align: right;
+    }
+  }
+  h1.widget-title {
+    font-size: 20px;
+    font-weight: normal;
+    border-bottom: solid 4px @link-hover-color;
+    background: #fafafa;
+    padding: 5px;
+    margin-top: 0px;
+  }
+  .widget_search {
+    padding-top: 5px !important;
+    label {
+      width: 100%;
+    }
+    form {
+      padding: 10px 5px;
+    }
+    input[type=submit] {
+      display: inline-block;
+    }
+    input[type=text] {
+      display: block;
+      width: 84%;
+      position: relative;
+      left: 30px;
+      border-radius: 0;
+
+    }
+  }
+  select#cat {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  .widget {
+    background: #fafafa;
+    border: solid 1px #eee;
+    margin-top: 15px;
+  }
+  .widget > div {
+    padding: 7px;
+  }
+}
+
+#secondary {
+  .widget {
+    line-height: 2em;
+  }
+}

@@ -1,0 +1,95 @@
+/* 2. Top Bar
+------------------------------------------------------- */
+#top-bar {
+  background: @top-bar-bg;
+  padding: 5px 0px;
+  position: relative;
+  z-index: 998;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1.0;
+  }
+}
+#social-icons {
+  float: right;
+  text-align: right;
+}
+.social-icon {
+  color: darken(@link-color, 25%);
+  font-size: 28px;
+  margin-right: 2px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  transition: ease 0.4s all;
+  &:hover {
+    color: darken(@link-color, 55%);
+    text-shadow: 3px 3px 1px darken(@link-color,15%);
+    top: -2px;
+    left: -2px;
+  }
+}
+a:hover .social-icon {
+  text-decoration: none;
+}
+.menu-icon {
+  position: relative;
+  top: 3px;
+  font-size: 26px;
+  color: darken(@link-color,25%);
+  a {
+    color: darken(@link-color,35%);
+  }
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+.menu-icon-container {
+  text-align: center;
+  cursor: pointer;
+  margin: auto -15px;
+}
+#top-search {
+  position: relative;
+  top: 2px;
+  left: -15px;
+  z-index: 9;
+
+  input[type=text] {
+    background: darken(@top-bar-bg,5%);
+    outline: none;
+    border: none;
+    box-shadow: inset 0px -1px 1px darken(@top-bar-bg,10%);
+    width: 300px;
+    padding-left: 30px;
+    &:hover,&:focus {
+      background: darken(@top-bar-bg,10%);
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: darken(@link-color,20%);
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: darken(@link-color,20%);;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: darken(@link-color,20%);;
+  }
+
+  :-ms-input-placeholder {
+    color: red;
+  }
+  button {
+    position: relative;
+    padding: 2px 5px;
+    background: none;
+    border: none;
+    -webkit-linear-gradient: none;
+    top: -2px;
+    box-shadow: none;
+    right: -30px;
+    color: darken(@link-color,15%);
+  }
+}

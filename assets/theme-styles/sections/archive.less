@@ -1,0 +1,35 @@
+.archive {
+  .entry-title a {
+    font-size: 26px;
+    color: darken(@link-color,80%);
+    &:hover {
+      color: @link-hover-color;
+    }
+  }
+  .entry-meta {
+    font-size: small;
+    color: @link-color;
+    .posted-on {
+      margin-right: 6px;
+    }
+  }
+}
+.featured-image-single {
+  text-align: center;
+  img {
+    max-width: 80%;
+    border: solid 5px lighten(@menu-bar-bg,30%);
+    box-shadow: 0px 2px 2px #888;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .featured-thumb {
+    .img-meta {
+      .meta-icon {
+        margin-top: 30px;
+      }
+    }
+  }
+}

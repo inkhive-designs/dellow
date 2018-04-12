@@ -9,95 +9,44 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-md-8">
+    <div id="primary-mono" class="content-area  <?php do_action('dellow_primary-width') ?>">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-						if ( is_category() ) :
-							single_cat_title();
-
-						elseif ( is_tag() ) :
-							single_tag_title();
-
-						elseif ( is_author() ) :
-							/* Queue the first post, that way we know
-							 * what author we're dealing with (if that is the case).
-							*/
-							the_post();
-							printf( __( 'Author: %s', 'dellow' ), '<span class="vcard">' . get_the_author() . '</span>' );
-							/* Since we called the_post() above, we need to
-							 * rewind the loop back to the beginning that way
-							 * we can run the loop properly, in full.
-							 */
-							rewind_posts();
-
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'dellow' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'dellow' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'dellow' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'dellow' );
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'dellow');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'dellow' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'dellow' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'dellow' );
-
-						else :
-							_e( 'Archives', 'dellow' );
-
-						endif;
-					?>
-				</h1>
-				<?php
-					// Show an optional term description.
-					$term_description = term_description();
-					if ( ! empty( $term_description ) ) :
-						printf( '<div class="taxonomy-description">%s</div>', $term_description );
-					endif;
-				?>
-			</header><!-- .page-header -->
+            <header class="page-header">
+                <?php
+                the_archive_title( '<h2 class="page-title">', '</h2>' );
+                the_archive_description( '<div class="taxonomy-description">', '</div>' );
+                ?>
+            </header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+            <?php if ( have_posts() ) : ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+                <?php /* Start the Loop */ ?>
+                <?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endwhile; ?>
+                    <?php
+                    /* Include the Post-Format-specific template for the content.
+                     */
+                    do_action('dellow_blog_layout');
+                    ?>
 
-			<?php dellow_content_nav( 'nav-below' ); ?>
+                <?php endwhile; ?>
 
-		<?php else : ?>
+                <?php //the_posts_pagination( array( 'mid_size' => 2 ));; ?>
 
-			<?php get_template_part( 'no-results', 'archive' ); ?>
+            <?php else : ?>
 
-		<?php endif; ?>
+                <?php get_template_part( 'modules/content/content', 'none' ); ?>
+
+            <?php endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+
+        <?php dellow_content_nav( 'nav-below' ); ?>
+
+    </div><!-- #primary -->
+
 
 <?php get_sidebar(); ?>
-<?php get_sidebar('footer'); ?>
 <?php get_footer(); ?>

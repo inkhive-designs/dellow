@@ -1,0 +1,42 @@
+/* 3. Header
+------------------------------------------------------- */
+#masthead {
+  margin: 40px auto;
+  text-align: center;
+  padding: 40px;
+}
+.site-title {
+  .font;
+  position: relative;
+  top: -10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px @top-bar-bg;
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.site-description {
+  font-size: 18px;
+  margin-top: -15px;
+  color: black;
+}
+.main_logo {
+  max-width: 360px;
+}
+@media screen and (max-width: 992px) {
+  .site-title,#top-search, #social-icons {
+    text-align: center;
+    float: none;
+    padding: 15px 5px;
+  }
+  .site-title {
+    margin-top: -5px;
+  }
+  #social-icons, #top-search {
+    padding: 10px 5px;
+  }
+}

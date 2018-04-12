@@ -10,27 +10,27 @@
 	</div>
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer row" role="contentinfo">
-	<div class="container">
-	<?php if ( of_get_option('credit1', true) == 0 ) { ?>
-		<div class="site-info col-md-4">
-			<?php do_action( 'dellow_credits' ); ?>
-			<?php printf( __( 'Dellow Theme by %1$s.', 'dellow' ), '<a href="http://inkhive.com/" rel="designer">InkHive</a>' ); ?>
-		</div><!-- .site-info -->
-	<?php } ?>	
-		<div id="footertext" class="col-md-7">
-        	<?php
-			if ( (function_exists( 'of_get_option' ) && (of_get_option('footertext2', true) != 1) ) ) {
-			 	echo of_get_option('footertext2', true); } ?>
-        </div>
-	</div>   
-	</footer><!-- #colophon -->
-	
+    <?php get_sidebar('footer'); ?>
+
+    <footer id="colophon" class="site-footer row" role="contentinfo">
+    	<div class="container">
+    	    <?php if ( get_theme_mod('dellow_footer_text', true) == 0 ) { ?>
+                <div class="site-info col-md-4 container">
+                    <?php printf( __( 'Powered by %1$s.', 'dellow' ), '<a href="'.esc_url("https://inkhive.com/product/dellow").'" rel="nofollow">Dellow Theme</a>' ); ?>
+                    <span class="sep"></span>
+                </div><!-- .site-info -->
+    	    <?php } ?>
+    	    	<div id="footertext" class="col-md-7">
+                    <?php echo ( get_theme_mod('dellow_footer_text') == '' ) ? ('&copy; '.date('Y').' '.get_bloginfo('name').__('. All Rights Reserved. ','dellow')) : esc_html( get_theme_mod('dellow_footer_text') ); ?>
+                </div>
+    	</div>
+    </footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 <?php		
-	if ( (function_exists( 'of_get_option' ) && (of_get_option('footercode1', true) != 1) ) ) {
-			 	echo of_get_option('footercode1', true); } ?>
+	if ( (get_theme_mod( 'dellow_custom_codef' ) != '' ) ) {
+			 	echo get_theme_mod('dellow_custom_codef'); } ?>
 <?php wp_footer(); ?>
 </body>
 </html>

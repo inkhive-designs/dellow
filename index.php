@@ -11,16 +11,8 @@
  * @package Dellow
  */
 get_header(); ?>
-<?php
-if ( of_get_option('slide1',true) == 1 ) { ?>
-	<div id="primary" class="content-area col-md-8">
-<?php }
-elseif (of_get_option('sidebar-layout', true) ==  'full') { ?>
-	<div id="primary" class="content-area col-md-10">
-	<?php }
-else { ?>
-	<div id="primary" class="content-area col-md-8"> <?php
-}	?>
+
+	<div id="primary" class="content-area  <?php do_action('dellow_primary-width') ?>">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -28,13 +20,12 @@ else { ?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+                <?php
+                /* Include the Post-Format-specific template for the content.
+                 */
+                do_action('dellow_blog_layout');
+
+                ?>
 
 			<?php endwhile; ?>
 
@@ -50,5 +41,4 @@ else { ?>
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-<?php get_sidebar('footer'); ?>
 <?php get_footer(); ?>

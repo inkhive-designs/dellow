@@ -1,0 +1,86 @@
+/* 6. Slider
+-------------------------------------------------*/
+.slider-wrapper {
+  margin: auto;
+  margin-top: 15px;
+  background: fade(@link-color, 50%);
+  padding-top: 15px;
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    margin-top: 10px;
+  }
+  .nivoSlider {
+    box-shadow: none !important;
+    .nivo-caption {
+      position: absolute;
+      font-family: inherit;
+      width: 100%;
+      overflow: hidden;
+      bottom: 15px;
+      left: 10px;
+      background: none;
+      a {
+        text-decoration: none;
+        border-bottom: none;
+      }
+      .slide-title {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 1px;
+        border-radius: 4px;
+        font-size: 36px;
+      }
+      .slide-desc span {
+        /* border-left: solid 4px black; */
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 3px;
+        color: @menu-bar-bg;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      .slide-cta span {
+        background: @menu-bar-bg;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 5px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        color: #999;
+        .transition(0.3s all ease);
+        &:hover {
+          .transition(0.3s all ease);
+          background: #999;
+          color: @menu-bar-bg;
+        }
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
+      }
+    }
+  }
+  .nivo-controlNav {
+    z-index: 9;
+    .transition(0.4s all ease);
+    a {
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      background: black;
+      border: solid 2px darken(@menu-bar-bg, 5%);
+      position: relative;
+      text-indent: -9999px !important;
+      border-radius: 50%;
+      .transition(0.4s all ease);
+      &:hover {
+        background: @menu-bar-bg;
+        border: solid 2px black;
+      }
+    }
+    .active {
+      background: @menu-bar-bg;
+      border: solid 2px black;
+    }
+  }
+}
+
