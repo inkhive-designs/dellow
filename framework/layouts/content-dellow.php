@@ -11,11 +11,11 @@
             <div class="img-meta">
                 <div class="img-meta-link meta-icon"><a class='meta-link' href="<?php the_permalink() ?>"><i class="fa fa-link"></i></a></div>
                 <?php	$thumb_id = get_post_thumbnail_id();
-                $thumb_url = wp_get_attachment_image_src($thumb_id,'dellow-pop-thumb', true);
+                $thumb_url = wp_get_attachment_image_src($thumb_id,'homepage-banner', true);
                 ?>
                 <div class="img-meta-img meta-icon"><a class='meta-link meta-link-img' title="<?php the_title(); ?>" href="<?php echo $thumb_url[0] ?>"><i class="fa fa-image"></i></a></div>
             </div>
-            <a href="<?php the_permalink() ?>" class="meta-link-img" title="<?php the_title_attribute() ?>"><?php the_post_thumbnail('dellow-pop-thumb'); ?></a>
+            <a href="<?php the_permalink() ?>" class="meta-link-img" title="<?php the_title_attribute() ?>"><?php the_post_thumbnail('homepage-banner'); ?></a>
 		</div><!--.featured-thumb-->
     <?php endif; ?>
 

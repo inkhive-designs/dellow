@@ -21,7 +21,10 @@ function dellow_customize_register_layouts($wp_customize) {
 
     $wp_customize->add_setting(
         'dellow_blog_layout',
-        array( 'sanitize_callback' => 'dellow_sanitize_blog_layout' )
+        array(
+            'sanitize_callback' => 'dellow_sanitize_blog_layout',
+            'default'   => 'grid',
+        )
     );
 
     function dellow_sanitize_blog_layout( $input ) {

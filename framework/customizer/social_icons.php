@@ -14,7 +14,7 @@ function dellow_customize_register_social($wp_customize) {
         'google-plus' => __('Google Plus', 'dellow'),
         'instagram' => __('Instagram', 'dellow'),
         'rss' => __('RSS Feeds', 'dellow'),
-        'vine' => __('Vine', 'dellow'),
+        'pinterest' => __('Pinterest', 'dellow'),
         'vimeo-square' => __('Vimeo', 'dellow'),
         'youtube' => __('Youtube', 'dellow'),
         'flickr' => __('Flickr', 'dellow'),
@@ -62,7 +62,7 @@ function dellow_customize_register_social($wp_customize) {
             'google-plus',
             'instagram',
             'rss',
-            'vine',
+            'pinterest',
             'vimeo-square',
             'youtube',
             'flickr'

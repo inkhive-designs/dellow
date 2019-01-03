@@ -20,7 +20,6 @@ function dellow_customize_register_misc($wp_customize) {
             'dellow_pro',
             array(
                 'description'	=> '<a class="dellow-important-links" href="https://inkhive.com/contact-us/" target="_blank">'.__('InkHive Support Forum', 'dellow').'</a>
-                                    <a class="dellow-important-links" href="https://inkhive.com/documentation/dellow" target="_blank">'.__('Dellow Documentation', 'dellow').'</a>
                                     <a class="dellow-important-links" href="https://demo.inkhive.com/dellow-plus/" target="_blank">'.__('Dellow Plus Live Demo', 'dellow').'</a>
                                     <a class="dellow-important-links" href="https://www.facebook.com/inkhivethemes/" target="_blank">'.__('We Love Our Facebook Fans', 'dellow').'</a>
                                     <a class="dellow-important-links" href="https://wordpress.org/support/theme/dellow/reviews" target="_blank">'.__('Review Dellow on WordPress', 'dellow').'</a>',

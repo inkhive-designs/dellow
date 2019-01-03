@@ -18,6 +18,9 @@ if ( ! function_exists( 'dellow_setup' ) ) :
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
 
+        //Guttenberg fullscreen content
+        add_theme_support( 'align-wide' );
+
         /*
          * Let WordPress manage the document title.
          * By adding theme support, we declare that this theme does not use a
@@ -35,6 +38,7 @@ if ( ! function_exists( 'dellow_setup' ) ) :
         add_theme_support( 'automatic-feed-links' );
         add_theme_support( 'post-thumbnails' );
         add_image_size('homepage-banner',400,400,true);
+        add_image_size('dellow-pop-thumb',525,350,true);
 
 
         // This theme uses wp_nav_menu() in one location.
